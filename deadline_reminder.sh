@@ -1,10 +1,9 @@
 #!/bin/bash
 
-# --- Configuration ---
-TASK_FILE="/home/neil/portfolio/reminder/tasks.csv"
-LOG_FILE="/home/neil/portfolio/reminder/reminder_log.txt"
+# Configuration
+TASK_FILE="/your/path/tasks.csv"
+LOG_FILE="/your/path/reminder_log.txt"
 NOTIFY_DAYS_BEFORE=1
-# --- End of Configuration ---
 
 # Create the log file if it doesn't exist and add a timestamp
 echo "----------------------------------------" >> "$LOG_FILE"
@@ -18,12 +17,10 @@ fi
 
 # Use an associative array to group tasks by email address
 declare -A tasks_by_email
-# THIS IS THE CORRECTED LINE: It now gets the seconds from the start of today (midnight)
 TODAY_SECONDS=$(date -d "today 00:00:00" +%s)
 
 # Read the task file line by line
 while IFS=',' read -r task_name deadline email; do
-    # Clean up any weird spacing or Windows line endings (\r)
     task_name=$(echo "$task_name" | xargs)
     deadline=$(echo "$deadline" | xargs)
     email=$(echo "$email" | xargs)
