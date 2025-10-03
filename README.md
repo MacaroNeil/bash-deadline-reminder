@@ -56,20 +56,22 @@ Example tasks.csv:
 "Prepare for team presentation",2025-10-26,alice@example.com
 "Renew software license",2025-11-01,admin@example.com
 
-Usage
-Make the script executable:
+# Usage
+
+# Make the script executable:
 
 chmod +x deadline_reminder.sh
 
-Run it manually to test:
+# Run it manually to test:
 
 bash ./deadline_reminder.sh
 
-Check the log file to see what happened:
+# Check the log file to see what happened:
 
 cat ./reminder_log.txt
 
-Automation with Cron
+# Automation with Cron
+
 To automate the script, add it to your user's crontab.
 
 Open the crontab editor:
